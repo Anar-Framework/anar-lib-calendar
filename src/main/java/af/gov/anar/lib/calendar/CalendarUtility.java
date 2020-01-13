@@ -15,12 +15,12 @@ import af.gov.anar.lib.calendar.exception.NullPointerException;
 /**
  * This class provides the calendar utilities for ANAR implementations.
  */
-public final class CalendarUtils {
+public final class CalendarUtility {
 
 	/**
 	 * private constructor for CalendarUtil class.
 	 */
-	private CalendarUtils() {
+	private CalendarUtility() {
 
 	}
 

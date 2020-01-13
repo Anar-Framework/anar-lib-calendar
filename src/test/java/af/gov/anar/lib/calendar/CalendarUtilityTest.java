@@ -1,6 +1,5 @@
 package af.gov.anar.lib.calendar;
 
-import af.gov.anar.lib.calendar.exception.*;
 import af.gov.anar.lib.calendar.exception.ArithmeticException;
 import af.gov.anar.lib.calendar.exception.IllegalArgumentException;
 import af.gov.anar.lib.calendar.exception.NullPointerException;
@@ -18,7 +17,7 @@ import java.util.TimeZone;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class CalendarUtilTest {
+public class CalendarUtilityTest {
 
 	private static DateFormat dateTimeParser = null;
 
@@ -29,7 +28,7 @@ public class CalendarUtilTest {
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void getCeilingTestCheckException() throws ParseException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.getCeiling(null, Calendar.HOUR);
+		CalendarUtility.getCeiling(null, Calendar.HOUR);
 	}
 
 	@Test(expected = java.lang.ArithmeticException.class)
@@ -38,7 +37,7 @@ public class CalendarUtilTest {
 		Date d = dateTimeParser.parse("March 28, 280000001 13:52:10.099");
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);
-		CalendarUtils.getCeiling(c, Calendar.YEAR);
+		CalendarUtility.getCeiling(c, Calendar.YEAR);
 	}
 
 	@Test(expected = java.lang.ArithmeticException.class)
@@ -47,7 +46,7 @@ public class CalendarUtilTest {
 		Date d = dateTimeParser.parse("March 28, 280000001 13:52:10.099");
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);
-		CalendarUtils.getRound(c, Calendar.YEAR);
+		CalendarUtility.getRound(c, Calendar.YEAR);
 	}
 
 	@Test(expected = java.lang.ArithmeticException.class)
@@ -56,81 +55,81 @@ public class CalendarUtilTest {
 		Date d = dateTimeParser.parse("March 28, 280000001 13:52:10.099");
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);
-		CalendarUtils.truncate(c, Calendar.YEAR);
+		CalendarUtility.truncate(c, Calendar.YEAR);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void getFragmentInDaysTestCheckException()
 			throws ParseException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.getFragmentInDays(null, Calendar.HOUR);
+		CalendarUtility.getFragmentInDays(null, Calendar.HOUR);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void getFragmentInHoursTestCheckException()
 			throws ParseException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.getFragmentInHours(null, Calendar.HOUR);
+		CalendarUtility.getFragmentInHours(null, Calendar.HOUR);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void getFragmentInMilliSecondsTestCheckException()
 			throws ParseException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.getFragmentInMilliseconds(null, Calendar.HOUR);
+		CalendarUtility.getFragmentInMilliseconds(null, Calendar.HOUR);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void getFragmentInMinutesTestCheckException()
 			throws ParseException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.getFragmentInMinutes(null, Calendar.HOUR);
+		CalendarUtility.getFragmentInMinutes(null, Calendar.HOUR);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void getFragmentInSecondsTestCheckException()
 			throws ParseException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.getFragmentInSeconds(null, Calendar.HOUR);
+		CalendarUtility.getFragmentInSeconds(null, Calendar.HOUR);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void isSameDayTestCheckException() throws ParseException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.isSameDay(null, null);
+		CalendarUtility.isSameDay(null, null);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void isSameInstanceTestCheckException()
 			throws ParseException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.isSameInstant(null, null);
+		CalendarUtility.isSameInstant(null, null);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void isSameLocalTimeTestCheckException()
 			throws ParseException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.isSameLocalTime(null, null);
+		CalendarUtility.isSameLocalTime(null, null);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void getRoundTestCheckException() throws ParseException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.getRound(null, Calendar.MONTH);
+		CalendarUtility.getRound(null, Calendar.MONTH);
 	}
 
 	@Test(expected = java.lang.NullPointerException.class)
 	public void toCalendarTestCheckException() throws NullPointerException {
-		CalendarUtils.toCalendar(null);
+		CalendarUtility.toCalendar(null);
 	}
 
 	@Test(expected = java.lang.NullPointerException.class)
 	public void toCalendar2TestCheckException() throws NullPointerException {
-		CalendarUtils.toCalendar(null, null);
+		CalendarUtility.toCalendar(null, null);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void truncateTestCheckException()
 			throws NullPointerException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.truncate(null, Calendar.MONTH);
+		CalendarUtility.truncate(null, Calendar.MONTH);
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void truncatedEqualsTestCheckException()
 			throws NullPointerException, IllegalArgumentException, ArithmeticException {
-		CalendarUtils.truncatedEquals(null, null, Calendar.MONTH);
+		CalendarUtility.truncatedEquals(null, null, Calendar.MONTH);
 	}
 
 	@Test
@@ -141,7 +140,7 @@ public class CalendarUtilTest {
 		c.setTime(d);
 		Calendar c1 = Calendar.getInstance();
 		c1.setTime(d2);
-		assertThat(CalendarUtils.getCeiling(c, Calendar.HOUR), is(c1));
+		assertThat(CalendarUtility.getCeiling(c, Calendar.HOUR), is(c1));
 	}
 
 	@Test()
@@ -149,7 +148,7 @@ public class CalendarUtilTest {
 		Date d = dateTimeParser.parse("January 28, 2008 13:52:10.099");
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);
-		assertThat(CalendarUtils.getFragmentInDays(c, Calendar.MONTH), is(28L));
+		assertThat(CalendarUtility.getFragmentInDays(c, Calendar.MONTH), is(28L));
 	}
 
 	@Test
@@ -157,7 +156,7 @@ public class CalendarUtilTest {
 		Date d = dateTimeParser.parse("January 1, 2008 07:15:10.538");
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);
-		assertThat(CalendarUtils.getFragmentInHours(c, Calendar.MONTH), is(7L));
+		assertThat(CalendarUtility.getFragmentInHours(c, Calendar.MONTH), is(7L));
 	}
 
 	@Test
@@ -165,7 +164,7 @@ public class CalendarUtilTest {
 		Date d = dateTimeParser.parse("January 1, 2008 07:15:10.538");
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);
-		assertThat(CalendarUtils.getFragmentInMilliseconds(c, Calendar.SECOND), is(538L));
+		assertThat(CalendarUtility.getFragmentInMilliseconds(c, Calendar.SECOND), is(538L));
 	}
 
 	@Test
@@ -173,7 +172,7 @@ public class CalendarUtilTest {
 		Date d = dateTimeParser.parse("January 1, 2008 07:15:10.538");
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);
-		assertThat(CalendarUtils.getFragmentInMinutes(c, Calendar.HOUR_OF_DAY), is(15L));
+		assertThat(CalendarUtility.getFragmentInMinutes(c, Calendar.HOUR_OF_DAY), is(15L));
 	}
 
 	@Test
@@ -181,7 +180,7 @@ public class CalendarUtilTest {
 		Date d = dateTimeParser.parse("January 1, 2008 07:15:10.538");
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);
-		assertThat(CalendarUtils.getFragmentInSeconds(c, Calendar.MINUTE), is(10L));
+		assertThat(CalendarUtility.getFragmentInSeconds(c, Calendar.MINUTE), is(10L));
 	}
 
 	@Test
@@ -192,7 +191,7 @@ public class CalendarUtilTest {
 		Calendar c2 = Calendar.getInstance();
 		c.setTime(d);
 		c2.setTime(d2);
-		assertThat(CalendarUtils.isSameDay(c, c2), is(true));
+		assertThat(CalendarUtility.isSameDay(c, c2), is(true));
 	}
 
 	@Test
@@ -203,7 +202,7 @@ public class CalendarUtilTest {
 		Calendar c2 = Calendar.getInstance();
 		c.setTime(d);
 		c2.setTime(d2);
-		assertThat(CalendarUtils.isSameInstant(c, c2), is(true));
+		assertThat(CalendarUtility.isSameInstant(c, c2), is(true));
 	}
 
 	@Test
@@ -214,7 +213,7 @@ public class CalendarUtilTest {
 		Calendar c2 = Calendar.getInstance();
 		c.setTime(d);
 		c2.setTime(d2);
-		assertThat(CalendarUtils.isSameLocalTime(c, c2), is(true));
+		assertThat(CalendarUtility.isSameLocalTime(c, c2), is(true));
 	}
 
 	@Test
@@ -225,7 +224,7 @@ public class CalendarUtilTest {
 		Date d2 = dateTimeParser.parse("March 28, 2002 14:00:00.000");
 		Calendar c2 = Calendar.getInstance();
 		c2.setTime(d2);
-		assertThat(CalendarUtils.getRound(c, Calendar.HOUR), is(c2));
+		assertThat(CalendarUtility.getRound(c, Calendar.HOUR), is(c2));
 	}
 
 	@Test
@@ -233,7 +232,7 @@ public class CalendarUtilTest {
 		Date d = dateTimeParser.parse("March 28, 2002 13:45:01.231");
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);
-		assertThat(CalendarUtils.toCalendar(d), is(c));
+		assertThat(CalendarUtility.toCalendar(d), is(c));
 	}
 
 	@Test
@@ -242,7 +241,7 @@ public class CalendarUtilTest {
 		TimeZone timeZone = TimeZone.getDefault();
 		Calendar c = Calendar.getInstance(timeZone);
 		c.setTime(d);
-		assertThat(CalendarUtils.toCalendar(d, timeZone), is(c));
+		assertThat(CalendarUtility.toCalendar(d, timeZone), is(c));
 	}
 
 	@Test
@@ -253,7 +252,7 @@ public class CalendarUtilTest {
 		Date d2 = dateTimeParser.parse("March 28, 2002 13:00:00.000");
 		Calendar c2 = Calendar.getInstance();
 		c2.setTime(d2);
-		assertThat(CalendarUtils.truncate(c, Calendar.HOUR), is(c2));
+		assertThat(CalendarUtility.truncate(c, Calendar.HOUR), is(c2));
 	}
 
 	@Test
@@ -264,6 +263,6 @@ public class CalendarUtilTest {
 		Date d2 = dateTimeParser.parse("March 28, 2002 13:00:00.000");
 		Calendar c2 = Calendar.getInstance();
 		c2.setTime(d2);
-		assertThat(CalendarUtils.truncatedEquals(c, c2, Calendar.HOUR), is(true));
+		assertThat(CalendarUtility.truncatedEquals(c, c2, Calendar.HOUR), is(true));
 	}
 }

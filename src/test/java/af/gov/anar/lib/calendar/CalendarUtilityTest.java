@@ -1,8 +1,8 @@
 package af.gov.anar.lib.calendar;
 
-import af.gov.anar.lib.calendar.exception.ArithmeticException;
-import af.gov.anar.lib.calendar.exception.IllegalArgumentException;
-import af.gov.anar.lib.calendar.exception.NullPointerException;
+import af.gov.anar.lang.infrastructure.exception.common.ArithmeticException;
+import af.gov.anar.lang.infrastructure.exception.common.IllegalArgumentException;
+import af.gov.anar.lang.infrastructure.exception.common.NullPointerException;
 import org.junit.Before;
 import org.junit.Test;
 
